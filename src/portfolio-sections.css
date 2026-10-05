@@ -1,0 +1,67 @@
+/* Image-led project stories and open reading layouts, scoped below the hero. */
+.folio-shell{width:min(1000px,calc(100% - 80px));margin-inline:auto}
+.portfolio-sections{padding-top:68px}
+.folio-section-heading{display:flex;justify-content:space-between;align-items:baseline;gap:25px;margin-bottom:35px}
+.folio-section-heading h2{font-size:25px;line-height:1.3;font-weight:600;letter-spacing:-.9px}
+.folio-section-heading>p{font-size:12px;line-height:1.8;color:#929aa7}
+.folio-projects{display:grid;gap:85px}
+.folio-project-cover{display:block;overflow:hidden;border-radius:17px;background:#10151b;border:1px solid #ffffff12;transition:border-color .2s}
+.folio-project-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;transition:transform .4s ease}
+.folio-project-cover:hover{border-color:#ffffff35}.folio-project-cover:hover img{transform:scale(1.012)}
+.folio-project-caption{display:grid;grid-template-columns:.85fr 1.15fr;gap:62px;padding:29px 14px 0}
+.folio-category{font:9px/1.7 var(--mono);letter-spacing:1.25px;color:#939eac;text-transform:uppercase}
+.folio-project-title h3{margin-top:9px;font-size:28px;line-height:1.2;letter-spacing:-.9px;font-weight:600}
+.folio-project-title h3 a{display:flex;align-items:center;gap:13px;width:fit-content}.folio-project-title h3 svg{opacity:0;transition:opacity .2s;color:var(--accent)}.folio-project-title h3 a:hover svg,.folio-project-title h3 a:focus-visible svg{opacity:1}
+.folio-project-title>p{font-size:13px;line-height:1.65;color:#aeb8c6;margin-top:11px;max-width:290px}
+.folio-project-story>p{font-size:14px;line-height:1.85;color:#b2bdcc;max-width:510px}
+.folio-project-links{display:flex;flex-wrap:wrap;gap:25px;margin-top:15px;align-items:center}
+.folio-link,.folio-secondary-link{display:inline-flex;align-items:center;gap:9px;min-height:40px;font-size:12px;font-weight:500;color:#e0e7ef}.folio-link:hover,.folio-secondary-link:hover{color:var(--accent)}
+.folio-secondary-link{color:#99a5b5;font-weight:400;font-size:11px}
+/* One continuous résumé column beside a profile that stays in view. */
+.folio-biography{display:grid;grid-template-columns:240px minmax(0,1fr);gap:85px;margin-top:120px}
+.folio-biography-content{min-width:0}
+.folio-reading-section{margin-top:72px}
+.folio-content-heading{margin-bottom:30px}
+.folio-content-heading h2{font-size:27px;line-height:1.3;letter-spacing:-.9px;font-weight:600}
+.folio-experience{display:grid;gap:43px}.folio-role{padding-bottom:35px;border-bottom:1px solid #ffffff0d}.folio-role:last-child{border:0;padding-bottom:0}
+.folio-role-heading{display:flex;justify-content:space-between;align-items:baseline;gap:25px}.folio-role h3{font-size:20px;font-weight:600;letter-spacing:-.55px;line-height:1.4}.folio-role-heading>span{font-size:10px;line-height:1.7;color:#8c99aa;text-align:right;flex-shrink:0}.folio-role-heading>div>p{font-size:12px;line-height:1.6;color:#78b8d4;margin-top:6px}
+.folio-role-description{font-size:13px;line-height:1.9;color:#b8c2cf;margin-top:20px}.folio-role ul{margin:14px 0 0;padding-left:16px;font-size:13px;line-height:1.85;color:#aab6c7}.folio-role li{padding-left:5px;margin-block:7px}.folio-role li::marker{color:#536677}.folio-technologies{font-size:10px;line-height:1.9;color:#8092a7;margin-top:18px}.folio-role>.folio-link{margin-top:12px;font-size:11px}
+.folio-profile{position:sticky;top:110px;align-self:start;display:flex;align-items:center;flex-direction:column;padding-top:5px}
+.folio-portrait{width:160px;height:160px;object-fit:cover;object-position:58% 22%;border-radius:50%;border:1px solid #ffffff25}
+.folio-location{display:flex;align-items:center;gap:7px;color:#a6b4c7;font-size:12px;line-height:1.6;margin-top:25px;white-space:nowrap}.folio-location svg{color:#76afc6}
+.folio-languages{margin-top:27px;display:grid;gap:19px;text-align:center}.folio-languages p{font-size:12px;color:#bdc7d4}.folio-languages span{display:block;color:#8f9cad;font-size:10px;margin-top:6px}
+.folio-resume{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid #ffffff22;border-radius:999px;min-height:44px;padding:10px 22px;font-size:12px;color:#dce4ee;margin-top:30px;transition:border-color .2s,color .2s}.folio-resume:hover{color:var(--accent);border-color:var(--accent)}
+.folio-about-copy h2{font-size:43px;letter-spacing:-1.8px;line-height:1.2;font-weight:650;margin-top:12px}.folio-role-label{font-size:23px;line-height:1.5;color:#8998ab;margin-top:9px;letter-spacing:-.6px}.folio-socials{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px;margin-bottom:29px}.folio-socials a{display:inline-flex;align-items:center;gap:7px;border:1px solid #ffffff12;border-radius:999px;padding:8px 12px;font-size:10px;color:#c8d2df;background:#ffffff02;min-height:34px}.folio-socials a:hover{border-color:#ffffff35;color:white}.folio-about-copy>p:not(.folio-role-label){font-size:14px;line-height:1.95;color:#b7c1d0;margin-top:15px}
+.folio-skill-list{display:grid;gap:32px}.folio-skill-list h3{font-size:19px;letter-spacing:-.5px;font-weight:550}.folio-skill-list article>p{font-size:13px;line-height:1.8;color:#9facbf;margin-top:10px;max-width:520px}.folio-skill-names{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px}.folio-skill-names span{font:11px/1.8 var(--mono);color:#c1d0df}
+.folio-study{display:flex;justify-content:space-between;align-items:baseline;gap:25px;padding:0 0 27px;margin-bottom:27px;border-bottom:1px solid #ffffff0d}.folio-study:last-child{border:0;margin-bottom:0;padding-bottom:0}.folio-study h3{font-size:15px;line-height:1.7;font-weight:550;color:#d5dee9;max-width:390px}.folio-study p{font-size:12px;line-height:1.8;color:#8f9fb3;margin-top:6px}.folio-study>span{font-size:10px;line-height:1.8;white-space:nowrap;color:#8191a6}
+.folio-contact{margin-top:115px;padding-bottom:65px}
+.folio-contact-inner{text-align:center;border-top:1px solid var(--line);padding:70px 0 15px}
+.folio-contact h2{font-size:48px;letter-spacing:-1.8px;line-height:1.2;font-weight:550;margin-top:18px}
+.folio-contact-inner>p{font-size:14px;line-height:1.9;color:#a3b0c2;margin-top:22px}
+.folio-email-row{display:flex;justify-content:center;align-items:center;gap:13px;margin-top:28px}
+.folio-email-row>a{display:flex;align-items:center;gap:11px;font-size:21px;letter-spacing:-.4px;color:#d9e8f1}.folio-email-row>a:hover{color:var(--accent)}
+.folio-copy-status{display:block;font-size:10px;line-height:1.8;color:var(--accent);min-height:18px;margin-top:6px}.folio-contact-inner>.folio-secondary-link{margin-top:7px}
+.folio-role ul{list-style:disc}
+@media(min-width:1700px){.folio-shell{width:min(1120px,calc(100% - 120px))}}
+@media(max-width:1050px){
+  .folio-shell{width:calc(100% - 80px)}.folio-project-caption{gap:40px}
+  .folio-biography{grid-template-columns:210px minmax(0,1fr);gap:42px}
+  .folio-role-heading{gap:15px}.folio-role-heading>span{font-size:9px}.folio-about-copy h2{font-size:35px}
+}
+@media(max-width:760px){
+  .folio-shell{width:calc(100% - 40px)}.portfolio-sections{padding-top:43px}
+  .folio-section-heading{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:25px}.folio-section-heading h2{font-size:24px}.folio-section-heading>p{font-size:12px}
+  .folio-projects{gap:52px}.folio-project-cover{border-radius:12px}.folio-project-caption{grid-template-columns:1fr;gap:17px;padding:23px 3px 0}
+  .folio-project-title h3{font-size:27px}.folio-project-title h3 svg{opacity:1;width:18px}.folio-project-title>p{max-width:none;font-size:13px;margin-top:9px}.folio-project-story>p{font-size:13px;line-height:1.85}.folio-project-links{margin-top:10px;gap:22px}.folio-category{font-size:8px}
+  .folio-biography{grid-template-columns:1fr;gap:38px;margin-top:80px}
+  .folio-profile{position:static;display:grid;grid-template-columns:80px minmax(0,1fr);align-items:center;column-gap:20px;row-gap:14px;padding:0 0 30px;border-bottom:1px solid var(--line)}
+  .folio-portrait{width:80px;height:80px;grid-row:1/3}.folio-location{font-size:10px;margin:0;white-space:normal}
+  .folio-languages{margin:0;display:flex;flex-wrap:wrap;text-align:left;gap:12px;align-self:start}.folio-languages p{font-size:9px}.folio-languages span{font-size:8px;line-height:1.5;margin-top:4px}
+  .folio-resume{grid-column:1/-1;justify-self:start;margin-top:4px}
+  .folio-about-copy h2{font-size:32px;letter-spacing:-1.2px}.folio-role-label{font-size:20px}.folio-socials{margin-top:18px;margin-bottom:23px}.folio-about-copy>p:not(.folio-role-label){font-size:13px}
+  .folio-reading-section{margin-top:58px}.folio-content-heading{margin-bottom:26px}.folio-content-heading h2{font-size:25px}.folio-desktop-break{display:none}
+  .folio-experience{gap:29px}.folio-role{padding-bottom:28px}.folio-role-heading{gap:12px}.folio-role h3{font-size:19px}.folio-role-heading>span{font-size:9px;max-width:95px;white-space:normal}.folio-role-description{font-size:13px;margin-top:16px}.folio-role ul{font-size:12px}.folio-technologies{font-size:9px}
+  .folio-skill-list{gap:27px}.folio-skill-names{gap:7px 17px}.folio-skill-names span{font-size:10px}.folio-study{gap:14px}.folio-study h3{font-size:14px}.folio-study p{font-size:11px}.folio-study>span{font-size:9px}
+  .folio-contact{margin-top:75px;padding-bottom:42px}.folio-contact-inner{padding:48px 0 0}.folio-contact h2{font-size:33px;letter-spacing:-1px}.folio-contact-inner>p{font-size:12px}.folio-email-row{gap:5px;margin-top:21px}.folio-email-row>a{font-size:16px;gap:5px}.folio-email-row>a>svg{width:16px}.folio-email-row .icon-button{min-width:34px}.folio-contact-inner>.folio-category{font-size:8px}
+}
+@media(max-height:560px) and (min-width:761px){.folio-profile{position:static}}

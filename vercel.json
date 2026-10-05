@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/chat.ts": {
+      "maxDuration": 30,
+      "includeFiles": "src/content/assistant-knowledge.md"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/work/:project",
+      "destination": "/index.html"
+    }
+  ]
+}
