@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { ArrowUpRight, FileText, Menu, Search, X } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
+import { ASSISTANT_ENABLED } from '../../config';
 
 const SearchDialog = lazy(() => import('./SearchDialog'));
 const links = [{ label: 'About', id: 'about' }, { label: 'Experience', id: 'experience' }, { label: 'Projects', id: 'work' }, { label: 'Skills', id: 'skills' }, { label: 'Contact', id: 'contact' }];
@@ -8,7 +9,7 @@ export function SiteHeader({ onAssistant, assistantOpen }: { onAssistant: () => 
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [active, setActive] = useState(window.location.pathname.startsWith('/work/') ? 'work' : 'intro');
-  const enabled = import.meta.env.VITE_ASSISTANT_ENABLED !== 'false';
+  const enabled = ASSISTANT_ENABLED;
   useEffect(() => {
     function onKey(event: KeyboardEvent) {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k' && !assistantOpen) { event.preventDefault(); setMenuOpen(false); setSearchOpen(open => !open); }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Search, X } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from '../../data/portfolioData';
+import { ASSISTANT_ENABLED } from '../../config';
 
 type SearchDialogProps = { onClose: () => void; onAssistant: () => void };
 const pages = [
@@ -23,7 +24,7 @@ export default function SearchDialog({ onClose, onAssistant }: SearchDialogProps
     const rank = (title: string) => title.toLowerCase() === term ? 0 : title.toLowerCase().includes(term) ? 1 : 2;
     return rank(a.title) - rank(b.title);
   });
-  const showAssistant = import.meta.env.VITE_ASSISTANT_ENABLED !== 'false' && /assistant|ai|chat|^$/.test(query.trim().toLowerCase());
+  const showAssistant = ASSISTANT_ENABLED && /assistant|ai|chat|^$/.test(query.trim().toLowerCase());
   useEffect(() => {
     const previous = document.activeElement;
     const element = dialog.current;
