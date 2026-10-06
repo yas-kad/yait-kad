@@ -126,7 +126,7 @@ export function ProjectPage({ project }: { project: Project }) {
           <ArrowLeft size={16} />
           Back to selected work
         </a>
-        <a href={`/work/${next.id}`}>
+        <a href={`/work/${next.id}/`}>
           <span>NEXT PROJECT</span>
           <strong>
             {next.title}

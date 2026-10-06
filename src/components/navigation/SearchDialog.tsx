@@ -10,7 +10,7 @@ const pages = [
   { title: 'Work experience', detail: 'Marjane Mall, Agenz, 1337 Labs, Noun', href: '/#experience' },
   { title: 'Skills', detail: 'React, Next.js, Astro, TypeScript, Node.js', href: '/#skills' },
   { title: 'Agenz', detail: 'Frontend engineering experience · marketplace and internal tools', href: '/#experience-agenz' },
-  ...PROJECTS.map(project => ({ title: project.title, detail: project.description, href: `/work/${project.id}` })),
+  ...PROJECTS.map(project => ({ title: project.title, detail: project.description, href: `/work/${project.id}/` })),
   { title: 'Résumé', detail: 'Download the full résumé', href: PERSONAL_INFO.resumeUrl },
   { title: 'Contact', detail: PERSONAL_INFO.email, href: '/#contact' },
 ];

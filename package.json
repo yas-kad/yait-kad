@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server/index.ts",
-    "build": "vite build",
+    "build": "vite build && node --import tsx scripts/route-pages.ts",
     "start": "NODE_ENV=production tsx server/index.ts",
     "preview": "NODE_ENV=production tsx server/index.ts",
     "lint": "tsc --noEmit",
