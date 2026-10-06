@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { ArrowRight, ArrowUpRight, Check, Copy, Download, Linkedin, Mail, MapPin } from 'lucide-react';
 import { EDUCATION, EXPERIENCES, PERSONAL_INFO, PROJECTS, SKILLS } from '../data/portfolioData';
 
-const selectedProjects = ['andaplay', 'stayroom'].flatMap(id => PROJECTS.filter(project => project.id === id));
 const skillDescriptions: Record<string, string> = {
   Interfaces: 'Building web experiences, from public-facing pages to the tools teams use every day.',
   'State & data': 'Connecting interfaces to APIs, managing application state, and keeping data in sync.',
@@ -18,9 +17,9 @@ export function PortfolioSections() {
   return <div className="portfolio-sections">
     <section className="folio-shell selected-work" id="work" data-nav-section="work" aria-labelledby="work-title">
       <header className="folio-section-heading"><h2 id="work-title">Selected work</h2><p>Products I contribute to. Ideas I explore.</p></header>
-      <div className="folio-projects">{selectedProjects.map(project => <article className="folio-project" key={project.id}>
+      <div className="folio-projects">{PROJECTS.map(project => <article className="folio-project" key={project.id}>
         <a className="folio-project-cover" href={`/work/${project.id}`} aria-label={`View ${project.title} project details`}><img src={project.image} alt={project.imageAlt} width="1280" height="720" loading="lazy"/></a>
-        <div className="folio-project-caption"><div className="folio-project-title"><span className="folio-category">{project.category}</span><h3><a href={`/work/${project.id}`}>{project.title}<ArrowUpRight size={22}/></a></h3><p>{project.subtitle}</p></div><div className="folio-project-story"><p>{project.id === 'andaplay' ? 'I contribute to AndaPlay, a sports platform connecting players, court reservations, and the tools clubs use to manage bookings.' : 'A room-rental demo exploring discovery, filters, and a reservation journey. It uses fictional listings and does not process real bookings or payments.'}</p><div className="folio-project-links"><a className="folio-link" href={`/work/${project.id}`}>Read project story <ArrowRight size={16}/><span className="sr-only">: {project.title}</span></a><a className="folio-secondary-link" href={project.website} target="_blank" rel="noreferrer">{project.id === 'stayroom' ? 'Live demo' : 'Visit website'}<ArrowUpRight size={14}/><span className="sr-only"> (opens in a new tab)</span></a></div></div></div>
+        <div className="folio-project-caption"><div className="folio-project-title"><span className="folio-category">{project.category}</span><h3><a href={`/work/${project.id}`}>{project.title}<ArrowUpRight size={22}/></a></h3><p>{project.subtitle}</p></div><div className="folio-project-story"><p>{project.id === 'andaplay' ? 'I built the web front end of AndaPlay: the public website and the back office sports clubs use to manage bookings, members, coaches, and payments.' : 'A room-rental demo exploring discovery, filters, and a reservation journey. It uses fictional listings and does not process real bookings or payments.'}</p><div className="folio-project-links"><a className="folio-link" href={`/work/${project.id}`}>Read project story <ArrowRight size={16}/><span className="sr-only">: {project.title}</span></a><a className="folio-secondary-link" href={project.website} target="_blank" rel="noreferrer">{project.id === 'stayroom' ? 'Live demo' : 'Visit website'}<ArrowUpRight size={14}/><span className="sr-only"> (opens in a new tab)</span></a></div></div></div>
       </article>)}</div>
     </section>
 
@@ -42,7 +41,7 @@ export function PortfolioSections() {
           <header className="folio-content-heading"><h2 id="experience-title">Work experience</h2></header>
           <div className="folio-experience">{EXPERIENCES.map(experience => <article className="folio-role" key={experience.company} id={experience.company === 'Agenz' ? 'experience-agenz' : undefined}>
             <div className="folio-role-heading"><div><h3>{experience.company}</h3><p>{experience.role}</p></div><span>{experience.period}</span></div>
-            <p className="folio-role-description">{experience.description}</p><ul>{experience.achievements.map(achievement => <li key={achievement}>{achievement}</li>)}</ul><p className="folio-technologies">{experience.technologies.join(' · ')}</p>
+            <p className="folio-role-description">{experience.description}</p>{experience.achievements.length > 0 && <ul>{experience.achievements.map(achievement => <li key={achievement}>{achievement}</li>)}</ul>}{experience.groups?.map(group => <div className="folio-role-group" key={group.title}><h4>{group.title}</h4><ul>{group.items.map(item => <li key={item}>{item}</li>)}</ul></div>)}<p className="folio-technologies">{experience.technologies.join(' · ')}</p>
           </article>)}</div>
         </section>
 
