@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { ArrowRight, ArrowUpRight, Check, Copy, Download, Linkedin, Mail, MapPin } from 'lucide-react';
-import { EDUCATION, EXPERIENCES, PERSONAL_INFO, PROJECTS, SKILLS } from '../data/portfolioData';
+import { ArrowRight, ArrowUpRight, Check, Copy, Download, Linkedin, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { EDUCATION, EXPERIENCES, FEATURED_PROJECT_IDS, PERSONAL_INFO, PROJECTS, SKILLS } from '../data/portfolioData';
+import { ProjectCard } from './ProjectCard';
 
 const skillDescriptions: Record<string, string> = {
   Interfaces: 'Building web experiences, from public-facing pages to the tools teams use every day.',
@@ -10,20 +11,19 @@ const skillDescriptions: Record<string, string> = {
 
 export function PortfolioSections() {
   const [copyStatus, setCopyStatus] = useState('');
+  const featuredProjects = PROJECTS.filter(project => FEATURED_PROJECT_IDS.includes(project.id));
   async function copyEmail() {
     try { await navigator.clipboard.writeText(PERSONAL_INFO.email); setCopyStatus('Email copied'); }
     catch { setCopyStatus('Could not copy. Use the email link or select the address.'); }
   }
   return <div className="portfolio-sections">
-    <section className="folio-shell selected-work" id="work" data-nav-section="work" aria-labelledby="work-title">
+    <section className="shell folio-shell selected-work" id="work" data-nav-section="work" aria-labelledby="work-title">
       <header className="folio-section-heading"><h2 id="work-title">Selected work</h2><p>Products I contribute to. Ideas I explore.</p></header>
-      <div className="folio-projects">{PROJECTS.map(project => <article className="folio-project" key={project.id}>
-        <a className="folio-project-cover" href={`/work/${project.id}/`} aria-label={`View ${project.title} project details`}><img src={project.image} alt={project.imageAlt} width="1280" height="720" loading="lazy"/></a>
-        <div className="folio-project-caption"><div className="folio-project-title"><span className="folio-category">{project.category}</span><h3><a href={`/work/${project.id}/`}>{project.title}<ArrowUpRight size={22}/></a></h3><p>{project.subtitle}</p></div><div className="folio-project-story"><p>{project.id === 'andaplay' ? 'I built the web front end of AndaPlay: the public website and the back office sports clubs use to manage bookings, members, coaches, and payments.' : 'A room-rental demo exploring discovery, filters, and a reservation journey. It uses fictional listings and does not process real bookings or payments.'}</p><div className="folio-project-links"><a className="folio-link" href={`/work/${project.id}/`}>Read project story <ArrowRight size={16}/><span className="sr-only">: {project.title}</span></a><a className="folio-secondary-link" href={project.website} target="_blank" rel="noreferrer">{project.id === 'stayroom' ? 'Live demo' : 'Visit website'}<ArrowUpRight size={14}/><span className="sr-only"> (opens in a new tab)</span></a></div></div></div>
-      </article>)}</div>
+      <div className="folio-projects">{featuredProjects.map(project => <ProjectCard project={project} key={project.id}/>)}</div>
+      <a className="folio-link folio-view-all" href="/projects">View all projects <ArrowRight size={16}/></a>
     </section>
 
-    <div className="folio-shell folio-biography" id="about" data-nav-section="about">
+    <div className="shell folio-shell folio-biography" id="about" data-nav-section="about">
       <aside className="folio-profile" aria-label="Profile and résumé">
         <img className="folio-portrait" src="/images/yassin-portrait.jpeg" alt="Yassin Ait Kaddour" width="160" height="160" loading="lazy"/>
         <span className="folio-location"><MapPin size={14}/>{PERSONAL_INFO.location}</span>
@@ -33,7 +33,7 @@ export function PortfolioSections() {
       <div className="folio-biography-content">
         <section className="folio-about-copy" aria-labelledby="about-title">
           <span className="folio-category">A LITTLE ABOUT ME</span><h2 id="about-title">Yassin Ait Kaddour</h2><p className="folio-role-label">Software Engineer</p>
-          <div className="folio-socials"><a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noreferrer"><Linkedin size={14}/>LinkedIn<span className="sr-only"> (opens in a new tab)</span></a><a href={`mailto:${PERSONAL_INFO.email}`}><Mail size={14}/>Email</a></div>
+          <div className="folio-socials"><a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noreferrer"><Linkedin size={14}/>LinkedIn<span className="sr-only"> (opens in a new tab)</span></a><a href={PERSONAL_INFO.whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={14}/>WhatsApp<span className="sr-only"> (opens in a new tab)</span></a><a href={`mailto:${PERSONAL_INFO.email}`}><Mail size={14}/>Email</a></div>
           <p>I’m a software engineer with a strong frontend background. My work connects interfaces, APIs, content, and the tools teams use every day.</p><p>I enjoy solving engineering problems, building maintainable applications, and exploring where AI can make software more useful.</p>
         </section>
 
@@ -57,6 +57,6 @@ export function PortfolioSections() {
       </div>
     </div>
 
-    <section className="folio-shell folio-contact" id="contact" data-nav-section="contact" aria-labelledby="contact-title"><div className="folio-contact-inner"><span className="folio-category">HAVE SOMETHING IN MIND?</span><h2 id="contact-title">Let’s build something<br/>worth using.</h2><p>A product, an opportunity, or a good engineering problem.<br className="folio-desktop-break"/> I’d be happy to hear about it.</p><div className="folio-email-row"><a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}<ArrowUpRight size={21}/></a><button className="icon-button" onClick={copyEmail} aria-label="Copy email address">{copyStatus === 'Email copied' ? <Check size={17}/> : <Copy size={17}/>}</button></div><span className="folio-copy-status" role="status">{copyStatus}</span><a className="folio-secondary-link" href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn <ArrowUpRight size={14}/></a></div></section>
+    <section className="shell folio-shell folio-contact" id="contact" data-nav-section="contact" aria-labelledby="contact-title"><div className="folio-contact-inner"><span className="folio-category">HAVE SOMETHING IN MIND?</span><h2 id="contact-title">Let’s build something<br/>worth using.</h2><p>A product, an opportunity, or a good engineering problem.<br className="folio-desktop-break"/> I’d be happy to hear about it.</p><div className="folio-email-row"><a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}<ArrowUpRight size={21}/></a><button className="icon-button" onClick={copyEmail} aria-label="Copy email address">{copyStatus === 'Email copied' ? <Check size={17}/> : <Copy size={17}/>}</button></div><span className="folio-copy-status" role="status">{copyStatus}</span><div className="folio-contact-links"><a className="folio-secondary-link" href={PERSONAL_INFO.whatsappUrl} target="_blank" rel="noreferrer">Message on WhatsApp <ArrowUpRight size={14}/><span className="sr-only"> (opens in a new tab)</span></a><a className="folio-secondary-link" href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noreferrer">Connect on LinkedIn <ArrowUpRight size={14}/><span className="sr-only"> (opens in a new tab)</span></a></div></div></section>
   </div>;
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowRight, Download, Mail } from 'lucide-react';
 import { PERSONAL_INFO, PROJECTS } from './data/portfolioData';
 import { ProjectPage } from './components/ProjectPage';
+import { ProjectsPage } from './components/ProjectsPage';
 import { PortfolioSections } from './components/PortfolioSections';
 import { SiteHeader } from './components/navigation/SiteHeader';
 import { AssistantLauncher } from './components/chat/AssistantLauncher';
@@ -11,9 +12,10 @@ export default function App() {
   const pathname = window.location.pathname.replace(/\/$/, '') || '/';
   const project = PROJECTS.find(item => pathname === `/work/${item.id}`);
   const isHome = pathname === '/';
+  const isProjects = pathname === '/projects';
   useEffect(() => {
-    document.title = project ? `${project.title} — Yassin Ait Kaddour` : isHome ? 'Yassin Ait Kaddour — Software Engineer' : 'Page not found — Yassin Ait Kaddour';
-  }, [project, isHome]);
+    document.title = project ? `${project.title} — Yassin Ait Kaddour` : isProjects ? 'Projects — Yassin Ait Kaddour' : isHome ? 'Yassin Ait Kaddour — Software Engineer' : 'Page not found — Yassin Ait Kaddour';
+  }, [project, isHome, isProjects]);
   useEffect(() => {
     // The initial hash can resolve before the client-rendered sections exist.
     const frame = requestAnimationFrame(() => {
@@ -26,7 +28,7 @@ export default function App() {
     <a className="skip-link" href="#main">Skip to content</a>
     <SiteHeader onAssistant={() => setAssistantOpen(true)} assistantOpen={assistantOpen}/>
     <main id="main">
-      {project ? <ProjectPage project={project}/> : !isHome ? <section className="shell not-found"><span className="eyebrow">404 / PAGE NOT FOUND</span><h1>This page isn’t here.</h1><a className="button button-primary" href="/">Back to the portfolio <ArrowRight size={16}/></a></section> : <>
+      {project ? <ProjectPage project={project}/> : isProjects ? <ProjectsPage/> : !isHome ? <section className="shell not-found"><span className="eyebrow">404 / PAGE NOT FOUND</span><h1>This page isn’t here.</h1><a className="button button-primary" href="/">Back to the portfolio <ArrowRight size={16}/></a></section> : <>
       <section className="hero shell" aria-labelledby="hero-title" data-nav-section="intro">
         <div className="hero-badge"><span className="status-dot"/>Software Engineer<span className="badge-divider"/>Casablanca, Morocco</div>
         <h1 id="hero-title">Hi, I’m Yassin<span className="hero-period">.</span><br/><span>I build useful software.</span></h1>

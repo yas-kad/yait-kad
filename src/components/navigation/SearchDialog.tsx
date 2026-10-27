@@ -6,7 +6,8 @@ import { ASSISTANT_ENABLED } from '../../config';
 type SearchDialogProps = { onClose: () => void; onAssistant: () => void };
 const pages = [
   { title: 'About Yassin', detail: 'Background, education, and languages', href: '/#about' },
-  { title: 'Selected projects', detail: 'AndaPlay and StayRoom', href: '/#work' },
+  { title: 'Selected projects', detail: 'AndaPlay and Yak, featured on the homepage', href: '/#work' },
+  { title: 'All projects', detail: 'AndaPlay, StayRoom, Yak, and Balcony Garden Planner', href: '/projects' },
   { title: 'Work experience', detail: 'Marjane Mall, Agenz, 1337 Labs, Noun', href: '/#experience' },
   { title: 'Skills', detail: 'React, Next.js, Astro, TypeScript, Node.js', href: '/#skills' },
   { title: 'Agenz', detail: 'Frontend engineering experience · marketplace and internal tools', href: '/#experience-agenz' },

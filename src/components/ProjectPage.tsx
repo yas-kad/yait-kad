@@ -2,33 +2,13 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import { PERSONAL_INFO, PROJECTS } from "../data/portfolioData";
 import type { Project } from "../types";
 
-const productDetails: Record<string, { title: string; body: string }[]> = {
-  stayroom: [
-    {
-      title: "Discover a room",
-      body: "The demo explores furnished rooms in shared apartments, with location, budget, and amenity filters to narrow the search.",
-    },
-    {
-      title: "Explore the details",
-      body: "Property and room detail pages provide the next step between browsing listings and starting a reservation.",
-    },
-    {
-      title: "Try the reservation journey",
-      body: "A sample reservation flow completes the prototype. There is no online payment, and it does not create a real rental booking.",
-    },
-  ],
-};
-
 export function ProjectPage({ project }: { project: Project }) {
   const next =
     PROJECTS[
       (PROJECTS.findIndex((item) => item.id === project.id) + 1) %
         PROJECTS.length
     ];
-  const isDemo = project.id === "stayroom";
-  const details = project.contributions.length
-    ? project.contributions
-    : productDetails[project.id] || [];
+  const details = project.contributions;
   return (
     <article className="case-page shell">
       <a href="/#work" className="text-button case-back">
@@ -47,23 +27,25 @@ export function ProjectPage({ project }: { project: Project }) {
           </div>
           <div>
             <span>FOCUS</span>
-            <strong>
-              {isDemo
-                ? "Room discovery & reservation demo"
-                : "Club back office & public website"}
-            </strong>
+            <strong>{project.focus}</strong>
           </div>
         </div>
-        <a
-          className="button button-primary"
-          href={project.website}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {isDemo ? "Explore the live demo" : "Visit the product"}
-          <ArrowUpRight size={16} />
-          <span className="sr-only"> (opens in a new tab)</span>
-        </a>
+        {project.website ? (
+          <a
+            className="button button-primary"
+            href={project.website}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {project.cta || "Visit the product"}
+            <ArrowUpRight size={16} />
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        ) : (
+          project.statusNote && (
+            <p className="case-status-note">{project.statusNote}</p>
+          )
+        )}
       </header>
       <figure className="case-screenshot">
         <img
@@ -75,19 +57,17 @@ export function ProjectPage({ project }: { project: Project }) {
         />
         <figcaption>{project.imageCaption}</figcaption>
       </figure>
+      {project.gallery?.map((shot) => (
+        <figure className="case-screenshot" key={shot.image}>
+          <img src={shot.image} alt={shot.alt} width="1280" height="720" />
+          <figcaption>{shot.caption}</figcaption>
+        </figure>
+      ))}
       <section className="case-details" aria-labelledby="case-details-title">
         <div>
-          <span className="eyebrow">
-            {isDemo ? "THE EXPERIENCE" : "THE WORK"}
-          </span>
-          <h2 id="case-details-title">
-            {isDemo ? "A closer look at the demo" : "What I built"}
-          </h2>
-          <p>
-            {isDemo
-              ? "A product exploration using sample content. Listings, people, and business data are fictional."
-              : "From the first landing page to the tools clubs rely on every day, across the whole web front end."}
-          </p>
+          <span className="eyebrow">{project.detailsEyebrow || "THE WORK"}</span>
+          <h2 id="case-details-title">{project.detailsHeading || "What I built"}</h2>
+          <p>{project.detailsIntro}</p>
         </div>
         <div className="case-detail-list">
           {details.map((detail, index) => (

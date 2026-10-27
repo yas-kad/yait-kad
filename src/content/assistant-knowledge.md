@@ -54,6 +54,12 @@ Yassin confirms that he works on AndaPlay. The product supports sports court res
 Website: https://stayroom.vercel.app
 A furnished-room rental demo exploring room discovery with location, budget, and amenity filters, property and room detail pages, and a reservation journey without online payment. It is not an operating rental business. Listings, people, and business data are fictional. No real customers, revenue, bookings, or commercial outcomes are documented. Its technology stack is not confirmed in the current portfolio.
 
+### Yak — personal project, not deployed
+No public website; it runs locally and in a private Slack workspace. An AI coworker reachable from Slack (@mentions) and a terminal chat, built from simple layers instead of an agent framework: one chat entry point shared by both interfaces, a swappable model provider (OpenAI, Claude, or Gemini), and filesystem tools (list_files, read_file, write_file) scoped to a single project folder, with writes confirmed before they happen. Technologies: Node.js, TypeScript, Express, Slack Bolt, OpenAI API, Anthropic API, Gemini API.
+
+### Balcony Garden Planner — personal project, not deployed
+No public website yet; running locally ahead of launch. An AI-assisted planner: a few questions about a balcony, terrace, or garden's sunlight, climate, and style produce a short planting plan with a generated picture of the planting and a photo of each recommended plant. Built with Next.js, Supabase (magic-link accounts, saved plans), Stripe (paid upgrade), and an MDX blog. Technologies: Next.js, React, TypeScript, Tailwind CSS, Supabase, Stripe, OpenAI API, Gemini API, MDX.
+
 ### Evidence limits
 There are no verified numerical performance improvements, traffic volumes, user counts, revenue figures, team sizes, or other scale metrics in this document. Next.js experience is documented at Agenz and 1337 Labs; operating it at a specified scale is not documented. There are currently no published articles or real testimonials supplied for this portfolio. Hiring availability, salary expectations, work authorization, relocation preferences, and management experience are not documented.
 
@@ -62,4 +68,4 @@ There are no verified numerical performance improvements, traffic volumes, user 
 Email: yait.kad@gmail.com
 LinkedIn: https://www.linkedin.com/in/yassin-ait-kaddour-77b096193
 Résumé: /resume/Yassin-Ait-Kaddour.pdf
-Portfolio sections: selected projects at /#work, experience at /#experience, biography and skills at /#about, contact at /#contact.
+Portfolio sections: selected projects at /#work, all projects at /projects, experience at /#experience, biography and skills at /#about, contact at /#contact.

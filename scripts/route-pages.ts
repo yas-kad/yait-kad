@@ -21,6 +21,9 @@ for (const project of PROJECTS) {
   const html = withMeta(shell, `${project.title} — ${PERSONAL_INFO.name}`, project.description, `https://yait-kad.me/work/${project.id}/`);
   writeFileSync(path.join(dir, 'index.html'), html);
 }
+const projectsDir = path.join(dist, 'projects');
+mkdirSync(projectsDir, { recursive: true });
+writeFileSync(path.join(projectsDir, 'index.html'), withMeta(shell, `Projects — ${PERSONAL_INFO.name}`, 'All projects: AndaPlay, StayRoom, Yak, and Balcony Garden Planner.', 'https://yait-kad.me/projects/'));
 // Unknown paths on GitHub Pages fall back to 404.html, which renders the app's own not-found screen.
 writeFileSync(path.join(dist, '404.html'), shell);
-console.log(`Route pages: ${PROJECTS.map(project => `/work/${project.id}`).join(', ')}, /404.html`);
+console.log(`Route pages: ${PROJECTS.map(project => `/work/${project.id}`).join(', ')}, /projects, /404.html`);
