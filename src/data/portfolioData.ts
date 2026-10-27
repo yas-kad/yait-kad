@@ -31,7 +31,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['Next.js', 'React', 'TypeScript', 'Redux Toolkit', 'React Query', 'Tailwind CSS', 'i18next', 'Prismic', 'Recharts'],
     gallery: [
-      { image: '/images/andaplay-club.jpg', alt: 'The AndaPlay club-management page, showing the back-office booking calendar', caption: 'The club back office: the booking calendar at the center of the work, shown from the public club-management page.' },
+      { image: '/images/andaplay-club.png', alt: 'The AndaPlay club-management page, showing the back-office booking calendar', caption: 'The club back office: the booking calendar at the center of the work, shown from the public club-management page.' },
     ],
   },
   {
@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     subtitle: 'A planting plan sized to the light you actually have.',
     description: 'An AI-assisted planner that turns a few questions about a balcony, terrace, or garden into a short planting plan with a picture of the space and a photo of each plant.',
     statusNote: 'Not deployed yet — running locally ahead of launch.',
-    image: '/images/balconyplanner.jpg',
+    image: '/images/balconyplanner.png',
     imageAlt: 'The Balcony Garden Planner landing page',
     imageCaption: 'The Balcony Garden Planner landing page, running locally ahead of launch.',
     role: 'Personal project · Full-stack',
