@@ -6,16 +6,17 @@ import { ProjectsPage } from './components/ProjectsPage';
 import { PortfolioSections } from './components/PortfolioSections';
 import { SiteHeader } from './components/navigation/SiteHeader';
 import { AssistantLauncher } from './components/chat/AssistantLauncher';
+import { pageMeta } from './seo';
 
-export default function App() {
+export default function App({ initialPath = window.location.pathname }: { initialPath?: string }) {
   const [assistantOpen, setAssistantOpen] = useState(false);
-  const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+  const pathname = initialPath.replace(/\/$/, '') || '/';
   const project = PROJECTS.find(item => pathname === `/work/${item.id}`);
   const isHome = pathname === '/';
   const isProjects = pathname === '/projects';
   useEffect(() => {
-    document.title = project ? `${project.title} — Yassin Ait Kaddour` : isProjects ? 'Projects — Yassin Ait Kaddour' : isHome ? 'Yassin Ait Kaddour — Software Engineer' : 'Page not found — Yassin Ait Kaddour';
-  }, [project, isHome, isProjects]);
+    document.title = pageMeta(pathname)?.title || 'Page not found — Yassin Ait Kaddour';
+  }, [pathname]);
   useEffect(() => {
     // The initial hash can resolve before the client-rendered sections exist.
     const frame = requestAnimationFrame(() => {
@@ -26,7 +27,7 @@ export default function App() {
   }, []);
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
-    <SiteHeader onAssistant={() => setAssistantOpen(true)} assistantOpen={assistantOpen}/>
+    <SiteHeader pathname={pathname} onAssistant={() => setAssistantOpen(true)} assistantOpen={assistantOpen}/>
     <main id="main">
       {project ? <ProjectPage project={project}/> : isProjects ? <ProjectsPage/> : !isHome ? <section className="shell not-found"><span className="eyebrow">404 / PAGE NOT FOUND</span><h1>This page isn’t here.</h1><a className="button button-primary" href="/">Back to the portfolio <ArrowRight size={16}/></a></section> : <>
       <section className="hero shell" aria-labelledby="hero-title" data-nav-section="intro">

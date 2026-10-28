@@ -1,12 +1,12 @@
 import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import {createRoot, hydrateRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import './editorial.css';
 import './portfolio-sections.css';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+const root = document.getElementById('root')!;
+const app = <StrictMode><App /></StrictMode>;
+// Known routes are prerendered at build time (scripts/route-pages.ts); 404.html ships an empty root.
+if (root.hasChildNodes()) hydrateRoot(root, app);
+else createRoot(root).render(app);

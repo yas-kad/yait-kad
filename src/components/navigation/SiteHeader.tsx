@@ -4,11 +4,11 @@ import { PERSONAL_INFO } from '../../data/portfolioData';
 import { ASSISTANT_ENABLED } from '../../config';
 
 const SearchDialog = lazy(() => import('./SearchDialog'));
-const links = [{ label: 'About', id: 'about', href: '/#about' }, { label: 'Experience', id: 'experience', href: '/#experience' }, { label: 'Projects', id: 'work', href: '/projects' }, { label: 'Skills', id: 'skills', href: '/#skills' }, { label: 'Contact', id: 'contact', href: '/#contact' }];
-export function SiteHeader({ onAssistant, assistantOpen }: { onAssistant: () => void; assistantOpen: boolean }) {
+const links = [{ label: 'About', id: 'about', href: '/#about' }, { label: 'Experience', id: 'experience', href: '/#experience' }, { label: 'Projects', id: 'work', href: '/projects/' }, { label: 'Skills', id: 'skills', href: '/#skills' }, { label: 'Contact', id: 'contact', href: '/#contact' }];
+export function SiteHeader({ pathname, onAssistant, assistantOpen }: { pathname: string; onAssistant: () => void; assistantOpen: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [active, setActive] = useState(window.location.pathname.startsWith('/work/') || window.location.pathname === '/projects' ? 'work' : 'intro');
+  const [active, setActive] = useState(pathname.startsWith('/work/') || pathname === '/projects' ? 'work' : 'intro');
   const enabled = ASSISTANT_ENABLED;
   useEffect(() => {
     function onKey(event: KeyboardEvent) {

@@ -20,12 +20,12 @@ export function PortfolioSections() {
     <section className="shell folio-shell selected-work" id="work" data-nav-section="work" aria-labelledby="work-title">
       <header className="folio-section-heading"><h2 id="work-title">Selected work</h2><p>Products I contribute to. Ideas I explore.</p></header>
       <div className="folio-projects">{featuredProjects.map(project => <ProjectCard project={project} key={project.id}/>)}</div>
-      <a className="folio-link folio-view-all" href="/projects">View all projects <ArrowRight size={16}/></a>
+      <a className="folio-link folio-view-all" href="/projects/">View all projects <ArrowRight size={16}/></a>
     </section>
 
     <div className="shell folio-shell folio-biography" id="about" data-nav-section="about">
       <aside className="folio-profile" aria-label="Profile and résumé">
-        <img className="folio-portrait" src="/images/yassin-portrait.jpeg" alt="Yassin Ait Kaddour" width="160" height="160" loading="lazy"/>
+        <img className="folio-portrait" src="/images/yassin-portrait.webp" alt="Yassin Ait Kaddour" width="160" height="160" loading="lazy"/>
         <span className="folio-location"><MapPin size={14}/>{PERSONAL_INFO.location}</span>
         <div className="folio-languages"><p>Arabic & Tamazight<span>Native</span></p><p>English & French<span>Professional proficiency</span></p></div>
         <a className="folio-resume" href={PERSONAL_INFO.resumeUrl} download><Download size={15}/>Full résumé</a>
@@ -34,7 +34,7 @@ export function PortfolioSections() {
         <section className="folio-about-copy" aria-labelledby="about-title">
           <span className="folio-category">A LITTLE ABOUT ME</span><h2 id="about-title">Yassin Ait Kaddour</h2><p className="folio-role-label">Software Engineer</p>
           <div className="folio-socials"><a href={PERSONAL_INFO.linkedinUrl} target="_blank" rel="noreferrer"><Linkedin size={14}/>LinkedIn<span className="sr-only"> (opens in a new tab)</span></a><a href={PERSONAL_INFO.whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle size={14}/>WhatsApp<span className="sr-only"> (opens in a new tab)</span></a><a href={`mailto:${PERSONAL_INFO.email}`}><Mail size={14}/>Email</a></div>
-          <p>I’m a software engineer with a strong frontend background. My work connects interfaces, APIs, content, and the tools teams use every day.</p><p>I enjoy solving engineering problems, building maintainable applications, and exploring where AI can make software more useful.</p>
+          <p>I’m a software engineer based in Casablanca, Morocco, with a strong frontend background. I build web applications with React, Next.js, and TypeScript, connecting interfaces, APIs, content, and the tools teams use every day.</p><p>I enjoy solving engineering problems, building maintainable applications, and exploring where AI can make software more useful.</p>
         </section>
 
         <section className="folio-reading-section" id="experience" data-nav-section="experience" aria-labelledby="experience-title">

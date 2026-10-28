@@ -8,15 +8,5 @@
       "maxDuration": 30,
       "includeFiles": "src/content/assistant-knowledge.md"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/work/:project",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/projects",
-      "destination": "/index.html"
-    }
-  ]
+  }
 }

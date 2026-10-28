@@ -55,8 +55,9 @@ app.use((err: unknown, _req: express.Request, res: express.Response, _next: expr
   res.status(tooLarge ? 413 : 400).json({ code: tooLarge ? 'BODY_TOO_LARGE' : 'INVALID_REQUEST', message: 'That request could not be accepted. Please shorten your question.' });
 });
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(root, 'dist'), { index: false }));
-  app.get('*', (req, res) => { if (req.accepts('html')) res.sendFile(path.join(root, 'dist/index.html')); else res.sendStatus(404); });
+  // Each route is a prerendered dist/<route>/index.html; anything else gets the client-rendered 404 page.
+  app.use(express.static(path.join(root, 'dist')));
+  app.use((req, res) => { if (req.accepts('html')) res.status(404).sendFile(path.join(root, 'dist/404.html')); else res.sendStatus(404); });
 } else {
   const { createServer } = await import('vite');
   const vite = await createServer({ server: { middlewareMode: true }, appType: 'spa' });

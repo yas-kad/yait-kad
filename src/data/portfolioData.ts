@@ -10,9 +10,10 @@ export const PERSONAL_INFO = {
 export const PROJECTS: Project[] = [
   {
     id: 'andaplay', title: 'AndaPlay', category: 'Web frontend',
+    seoTitle: 'AndaPlay — Next.js Sports Club Booking Platform',
     subtitle: 'Connecting players, courts, and clubs.',
     description: 'The public website and the back office sports clubs use to run bookings, members, and payments.',
-    website: 'https://andaplay.io', cta: 'Visit website', image: '/images/andaplay.png',
+    website: 'https://andaplay.io', cta: 'Visit website', image: '/images/andaplay.webp',
     imageAlt: 'The AndaPlay website showing its mobile booking application',
     imageCaption: 'AndaPlay public website and application previews.',
     role: 'Frontend Engineer · Web platform',
@@ -31,14 +32,15 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['Next.js', 'React', 'TypeScript', 'Redux Toolkit', 'React Query', 'Tailwind CSS', 'i18next', 'Prismic', 'Recharts'],
     gallery: [
-      { image: '/images/andaplay-club.png', alt: 'The AndaPlay club-management page, showing the back-office booking calendar', caption: 'The club back office: the booking calendar at the center of the work, shown from the public club-management page.' },
+      { image: '/images/andaplay-club.webp', alt: 'The AndaPlay club-management page, showing the back-office booking calendar', caption: 'The club back office: the booking calendar at the center of the work, shown from the public club-management page.' },
     ],
   },
   {
     id: 'stayroom', title: 'StayRoom', category: 'Demo prototype',
+    seoTitle: 'StayRoom — Room Rental Web App Demo',
     subtitle: 'Exploring a simpler way to find a room.',
     description: 'A room-rental demo exploring discovery, filters, and a reservation journey.',
-    website: 'https://stayroom.vercel.app', cta: 'Live demo', image: '/images/stayroom.png',
+    website: 'https://stayroom.vercel.app', cta: 'Live demo', image: '/images/stayroom.webp',
     imageAlt: 'The actual StayRoom demo with location, budget, move-in date, and room filters',
     imageCaption: 'Current StayRoom demo. Listings, people, and business data are fictional.',
     role: 'Demo project',
@@ -56,6 +58,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'yak', title: 'Yak', category: 'AI agent',
+    seoTitle: 'Yak — AI Agent for Slack and the Terminal',
     subtitle: 'An AI coworker that lives in Slack and the terminal.',
     description: 'A Slack bot and CLI agent that can read, search, and write files in one project folder, backed by OpenAI, Claude, or Gemini.',
     statusNote: 'Not deployed yet — runs locally and in a private Slack workspace.',
@@ -78,10 +81,11 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'balconyplanner', title: 'Balcony Garden Planner', category: 'Web app',
+    seoTitle: 'Balcony Garden Planner — AI Planting Plan App',
     subtitle: 'A planting plan sized to the light you actually have.',
     description: 'An AI-assisted planner that turns a few questions about a balcony, terrace, or garden into a short planting plan with a picture of the space and a photo of each plant.',
     statusNote: 'Not deployed yet — running locally ahead of launch.',
-    image: '/images/balconyplanner.png',
+    image: '/images/balconyplanner.webp',
     imageAlt: 'The Balcony Garden Planner landing page',
     imageCaption: 'The Balcony Garden Planner landing page, running locally ahead of launch.',
     role: 'Personal project · Full-stack',
