@@ -44,7 +44,7 @@ export function createChatHandler({ generate, limiter, clientKey, dailyLimit = 1
     const parsed = chatSchema.safeParse(raw);
     if (!parsed.success) return error(400, 'INVALID_REQUEST', 'Use up to 6 alternating messages, with no more than 500 characters each.');
     if (parsed.data.website) return error(400, 'BOT_DETECTED', 'That request could not be accepted. Please try again.');
-    if (!generate) return error(503, 'ASSISTANT_UNAVAILABLE', 'The assistant is offline. You can still explore the projects, read the résumé, or contact Yassin directly.');
+    if (!generate) return error(503, 'ASSISTANT_UNAVAILABLE', 'The assistant is offline. You can still explore the projects, read the resume, or contact Yassin directly.');
     try {
       const personal = await limiter.consume(clientKey(ip), 10, 600);
       if (!personal.allowed) return error(429, 'RATE_LIMITED', 'You’ve reached the question limit. Please try again in a few minutes.', personal.retryAfter);

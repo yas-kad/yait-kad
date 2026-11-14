@@ -5,7 +5,7 @@ import { MAX_MESSAGE_LENGTH } from '../../../shared/chat';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import './chat.css';
 
-const questions = ["What's his strongest technical area?", 'Has he worked with Next.js at scale?', 'Is he a fit for a senior React role?'];
+const questions = ['What’s his strongest technical area?', 'Has he worked with Next.js at scale?', 'Is he a fit for a senior React role?'];
 export default function ChatPanel({ onClose }: { onClose: () => void }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
@@ -46,13 +46,13 @@ export default function ChatPanel({ onClose }: { onClose: () => void }) {
     <div className="chat-layout">
       <header className="chat-header"><div className="chat-avatar" aria-hidden="true"><MessageCircle size={20}/></div><div><h2 id="chat-title">Ask me anything</h2><p id="chat-description">About Yassin’s work & experience</p></div><button className="icon-button" ref={closeButton} onClick={close} aria-label="Close assistant"><X size={20}/></button></header>
       <div className="chat-transcript" ref={transcript} role="region" aria-label="Conversation" tabIndex={0} onScroll={event => { const el = event.currentTarget; nearBottom.current = el.scrollHeight - el.scrollTop - el.clientHeight < 70; }}>
-        {messages.length === 0 && <div className="chat-welcome"><span className="eyebrow">A QUICK INTRODUCTION</span><h3>Get to know the<br/>engineer behind the work.</h3><p>Ask about his experience, skills, or projects. Answers draw from his résumé and portfolio.</p><div className="chat-suggestions">{questions.map(question => <button key={question} onClick={() => ask(question)} disabled={busy}>{question}<ArrowUpRight size={15}/></button>)}</div><p className="chat-empty-note">A useful starting point. You can always reach out directly.</p></div>}
+        {messages.length === 0 && <div className="chat-welcome"><span className="eyebrow">A QUICK INTRODUCTION</span><h3>Get to know the<br/>engineer behind the work.</h3><p>Ask about his experience, skills, or projects. Answers draw from his resume and portfolio.</p><div className="chat-suggestions">{questions.map(question => <button key={question} onClick={() => ask(question)} disabled={busy}>{question}<ArrowUpRight size={15}/></button>)}</div><p className="chat-empty-note">A useful starting point. You can always reach out directly.</p></div>}
         {messages.map(message => <article className={`chat-message chat-message-${message.role}`} key={message.id}><span>{message.role === 'user' ? 'YOU' : 'PORTFOLIO ASSISTANT'}</span><p>{message.content}</p></article>)}
         {busy && <div className="chat-typing" aria-hidden="true"><i/><i/><i/><span>{status === 'loading' ? 'Preparing an answer' : 'Writing'}</span></div>}
         {error && <div className="chat-error"><p>{error.message}</p><button className="text-button" disabled={busy} onClick={() => { nearBottom.current = true; retry(website); }}><RotateCcw size={14}/>Retry answer</button></div>}
       </div>
       <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{announcement}</div>
-      <footer className="chat-footer"><div className="chat-direct-links"><a href={PERSONAL_INFO.resumeUrl} download>Read résumé <ArrowUpRight size={12}/></a><a href={`mailto:${PERSONAL_INFO.email}`}>Contact Yassin <ArrowUpRight size={12}/></a></div>
+      <footer className="chat-footer"><div className="chat-direct-links"><a href={PERSONAL_INFO.resumeUrl} download>Read resume <ArrowUpRight size={12}/></a><a href={`mailto:${PERSONAL_INFO.email}`}>Contact Yassin <ArrowUpRight size={12}/></a></div>
         <form onSubmit={event => { event.preventDefault(); ask(draft); }}>
           <div className="chat-honeypot" aria-hidden="true"><label htmlFor="chat-website">Leave this field empty</label><input id="chat-website" name="website" value={website} onChange={event => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off"/></div>
           <label className="sr-only" htmlFor="chat-question">Your question about Yassin</label>

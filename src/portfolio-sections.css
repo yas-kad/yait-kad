@@ -18,7 +18,7 @@
 .folio-project-links{display:flex;flex-wrap:wrap;gap:25px;margin-top:15px;align-items:center}
 .folio-link,.folio-secondary-link{display:inline-flex;align-items:center;gap:9px;min-height:40px;font-size:12px;font-weight:500;color:#e0e7ef}.folio-link:hover,.folio-secondary-link:hover{color:var(--accent)}
 .folio-secondary-link{color:#99a5b5;font-weight:400;font-size:11px}
-/* One continuous résumé column beside a profile that stays in view. */
+/* One continuous resume column beside a profile that stays in view. */
 .folio-biography{display:grid;grid-template-columns:240px minmax(0,1fr);gap:85px;margin-top:120px}
 .folio-biography-content{min-width:0}
 .folio-reading-section{margin-top:72px}

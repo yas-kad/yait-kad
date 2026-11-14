@@ -8,7 +8,7 @@ export interface PageMeta { title: string; description: string; path: string; im
 const person = {
   '@type': 'Person', '@id': `${SITE_URL}/#person`,
   name: PERSONAL_INFO.name, url: `${SITE_URL}/`, image: `${SITE_URL}/og/yassin.jpg`, email: `mailto:${PERSONAL_INFO.email}`,
-  jobTitle: EXPERIENCES[0].role,
+  jobTitle: PERSONAL_INFO.role,
   worksFor: { '@type': 'Organization', name: EXPERIENCES[0].company },
   address: { '@type': 'PostalAddress', addressLocality: 'Casablanca', addressCountry: 'MA' },
   alumniOf: EDUCATION.map(item => ({ '@type': 'EducationalOrganization', name: item.school })),
@@ -21,8 +21,8 @@ const person = {
 export function pageMeta(pathname: string): PageMeta | undefined {
   const path = pathname.replace(/\/$/, '') || '/';
   if (path === '/') return {
-    title: `${PERSONAL_INFO.name} — Senior Frontend Engineer in Casablanca, Morocco`,
-    description: 'Senior Frontend Engineer in Casablanca, Morocco, building React, Next.js, and TypeScript web apps for e-commerce (Marjane Mall), proptech (Agenz), and sports clubs (AndaPlay).',
+    title: `${PERSONAL_INFO.name} — Software Engineer in Casablanca, Morocco`,
+    description: 'Software engineer in Casablanca, Morocco, building React, Next.js, and TypeScript web apps for e-commerce (Marjane Mall), proptech (Agenz), and sports clubs (AndaPlay).',
     path: '/', image: '/og/yassin.jpg',
     jsonLd: [
       { '@context': 'https://schema.org', '@type': 'ProfilePage', url: `${SITE_URL}/`, mainEntity: person },

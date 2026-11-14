@@ -1,6 +1,6 @@
 import type { ExperienceItem, Project } from '../types';
 
-// Résumé, September 2026; project status confirmed by the owner.
+// Resume, September 2026; project status confirmed by the owner.
 export const PERSONAL_INFO = {
   name: 'Yassin Ait Kaddour', role: 'Software Engineer', location: 'Casablanca, Morocco',
   email: 'yait.kad@gmail.com', linkedinUrl: 'https://www.linkedin.com/in/yassin-ait-kaddour-77b096193',
@@ -106,23 +106,24 @@ export const PROJECTS: Project[] = [
 export const FEATURED_PROJECT_IDS = ['andaplay', 'yak'];
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    company: 'Marjane Mall', role: 'Senior Frontend Engineer', period: 'Aug 2026 — Present', location: 'Casablanca', current: true,
-    description: 'Contributing to the development and evolution of one of Morocco’s leading e-commerce platforms by building scalable, high-performance web applications.',
+    company: 'Marjane Mall', role: 'Consultant React (Freelance)', period: 'Aug 2026 — Present', location: 'Casablanca', current: true,
+    description: 'Freelance engagement with one of Morocco’s leading retail and e-commerce groups, building the React applications behind its marketplace operations: seller catalogue management, warehouse flows, delivery, and returns.',
     achievements: [
-      'Building and maintaining scalable, high-performance features for a large-scale e-commerce platform serving a nationwide customer base.',
-      'Working closely with engineering, product, and design teams to deliver maintainable solutions and improve the overall user experience.',
-      'Driving technical excellence across frontend initiatives through code reviews, performance optimization, and reusable component architecture.',
+      'Building and maintaining features of the Seller Portal, where marketplace sellers manage their products, prices, and categories.',
+      'Contributing to XDock, the warehouse application depot teams use to scan and validate products, and to Reprise, which handles returned products.',
+      'Contributing to Dispatch, the delivery application drivers use to pick up their stops, follow their route, and complete drop-offs.',
+      'Working closely with engineering, product, and design teams, contributing through code reviews, performance optimization, and reusable component architecture.',
     ],
-    technologies: ['React', 'React Query', 'Vite', 'TypeScript', 'Tailwind CSS', 'REST APIs'],
+    technologies: ['React', 'React Query', 'Vite', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'CI/CD (Azure)'],
   },
   {
-    company: 'Agenz', role: 'Frontend Engineer', period: 'Nov 2022 — Jul 2026', location: 'Casablanca',
+    company: 'Agenz', role: 'Sr Software Developer', period: 'Nov 2022 — Jul 2026', location: 'Casablanca (Remote)',
     description: 'Agenz is Morocco’s leading proptech platform, digitizing the real estate market through its marketplace and AI-driven solutions.',
     achievements: [],
     groups: [
       { title: 'Marketplace', items: [
         'Developed and maintained key marketplace features: property search, filtering, and agent-client interactions.',
-        'Led the migration of landing pages from Next.js to Astro to improve SEO and reduce JavaScript payload for faster load times.',
+        'Led the migration of landing and guide pages from Next.js to Astro; the migrated pages now ship around 20 KB of JavaScript with a single hydrated island and load in about a second.',
         'Integrated Sanity CMS to build and manage blog pages, boosting the platform’s organic search visibility.',
       ] },
       { title: 'ProSpace (back office)', items: [
@@ -130,15 +131,17 @@ export const EXPERIENCES: ExperienceItem[] = [
         'Integrated REST APIs to display real-time property listings and agent profiles.',
       ] },
       { title: 'Multi-channel communication', items: [
-        'Customized and maintained Chatwoot (open source) into a unified hub for WhatsApp, Facebook, and web chat messages.',
+        'Customized and maintained Chatwoot (open source) into a unified hub for WhatsApp, Facebook, and web chat messages, used daily by around 50 people.',
         'Contributed to the AI chatbot interface that lets users talk to the platform’s AI agent directly on the website.',
         'Implemented an SSO login flow for secure, unified access across chat tools.',
       ] },
-      { title: 'PDF generation service', items: [
-        'Developed a Node.js endpoint with Puppeteer to automate official property documents and contact reports for agents.',
+      { title: 'Backend & team', items: [
+        'Developed a Node.js endpoint with Puppeteer to automate official property documents and contact reports, used daily by agents and staff across the company.',
+        'Implemented small backend features in NestJS alongside the PDF service, and used Socket.IO for real-time messaging in the communication hub.',
+        'Worked in a 10-person tech team in an Agile/Scrum setup, reviewing code for 3 developers and helping keep conventions consistent across the codebase.',
       ] },
     ],
-    technologies: ['Astro', 'Next.js', 'NestJS', 'Node.js', 'Puppeteer', 'Socket.IO', 'Redux', 'Sanity', 'Tailwind CSS', 'TypeScript'],
+    technologies: ['Astro', 'Next.js', 'NestJS', 'Node.js', 'Puppeteer', 'Socket.IO', 'Redux', 'Sanity', 'Tailwind CSS', 'TypeScript', 'Jest'],
   },
   {
     company: '1337 Labs', role: 'Software Developer', period: 'Nov 2021 — Nov 2022', location: 'Khouribga',
@@ -165,12 +168,12 @@ export const EXPERIENCES: ExperienceItem[] = [
   },
 ];
 export const SKILLS = [
-  { label: 'Interfaces', items: ['React', 'Next.js', 'Astro', 'React Native', 'TypeScript', 'Tailwind CSS'] },
+  { label: 'Interfaces', items: ['React', 'Next.js', 'Astro', 'TypeScript', 'Tailwind CSS'] },
   { label: 'State & data', items: ['React Query', 'Redux', 'React Hook Form', 'REST APIs', 'Socket.IO'] },
-  { label: 'Beyond the browser', items: ['Node.js', 'NestJS', 'Puppeteer', 'Sanity CMS', 'Vite', 'SEO'] },
+  { label: 'Beyond the browser', items: ['Node.js', 'NestJS', 'Puppeteer', 'Sanity CMS', 'Vite', 'Jest', 'SEO'] },
 ];
 export const EDUCATION = [
   { title: 'Professional License · Web & Mobile Software Engineering', school: 'National School of Applied Sciences, Khouribga', period: '2024–2025' },
-  { title: 'Computer Software Engineering', school: '1337 · 42 Network, Khouribga', period: '2019–2024' },
+  { title: 'Computer Software Engineering', school: '1337 · 42 Network, Khouribga', period: '2019–2025' },
   { title: 'DTS · IT Development', school: 'Specialized Institute of Management and Computer Science, Marrakech', period: '2017–2019' },
 ];

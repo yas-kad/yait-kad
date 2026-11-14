@@ -24,11 +24,11 @@ export function PortfolioSections() {
     </section>
 
     <div className="shell folio-shell folio-biography" id="about" data-nav-section="about">
-      <aside className="folio-profile" aria-label="Profile and résumé">
+      <aside className="folio-profile" aria-label="Profile and resume">
         <img className="folio-portrait" src="/images/yassin-portrait.webp" alt="Yassin Ait Kaddour" width="160" height="160" loading="lazy"/>
         <span className="folio-location"><MapPin size={14}/>{PERSONAL_INFO.location}</span>
         <div className="folio-languages"><p>Arabic & Tamazight<span>Native</span></p><p>English & French<span>Professional proficiency</span></p></div>
-        <a className="folio-resume" href={PERSONAL_INFO.resumeUrl} download><Download size={15}/>Full résumé</a>
+        <a className="folio-resume" href={PERSONAL_INFO.resumeUrl} download><Download size={15}/>Full resume</a>
       </aside>
       <div className="folio-biography-content">
         <section className="folio-about-copy" aria-labelledby="about-title">
@@ -40,7 +40,7 @@ export function PortfolioSections() {
         <section className="folio-reading-section" id="experience" data-nav-section="experience" aria-labelledby="experience-title">
           <header className="folio-content-heading"><h2 id="experience-title">Work experience</h2></header>
           <div className="folio-experience">{EXPERIENCES.map(experience => <article className="folio-role" key={experience.company} id={experience.company === 'Agenz' ? 'experience-agenz' : undefined}>
-            <div className="folio-role-heading"><div><h3>{experience.company}</h3><p>{experience.role}</p></div><span>{experience.period}</span></div>
+            <div className="folio-role-heading"><div><h3>{experience.company}</h3><p>{experience.role}</p></div><span>{experience.period}<br />{experience.location}</span></div>
             <p className="folio-role-description">{experience.description}</p>{experience.achievements.length > 0 && <ul>{experience.achievements.map(achievement => <li key={achievement}>{achievement}</li>)}</ul>}{experience.groups?.map(group => <div className="folio-role-group" key={group.title}><h4>{group.title}</h4><ul>{group.items.map(item => <li key={item}>{item}</li>)}</ul></div>)}<p className="folio-technologies">{experience.technologies.join(' · ')}</p>
           </article>)}</div>
         </section>
