@@ -106,18 +106,18 @@ export const PROJECTS: Project[] = [
 export const FEATURED_PROJECT_IDS = ['andaplay', 'yak'];
 export const EXPERIENCES: ExperienceItem[] = [
   {
-    company: 'Marjane Mall', role: 'Consultant React (Freelance)', period: 'Aug 2026 — Present', location: 'Casablanca', current: true,
-    description: 'Freelance engagement with one of Morocco’s leading retail and e-commerce groups, building the React applications behind its marketplace operations: seller catalogue management, warehouse flows, delivery, and returns.',
+    company: 'Marjane Mall', role: 'React Consultant (Freelance)', period: 'Aug 2026 — Present', location: 'Casablanca', current: true,
+    description: 'Freelance engagement with one of Morocco’s leading retail and e-commerce groups, contributing to the React applications behind its marketplace operations: seller catalog management, warehouse flows, delivery, and returns.',
     achievements: [
-      'Building and maintaining features of the Seller Portal, where marketplace sellers manage their products, prices, and categories.',
-      'Contributing to XDock, the warehouse application depot teams use to scan and validate products, and to Reprise, which handles returned products.',
-      'Contributing to Dispatch, the delivery application drivers use to pick up their stops, follow their route, and complete drop-offs.',
+      'Maintaining and extending the Seller Portal, where marketplace sellers manage their products, prices, and categories.',
+      'Developing features and fixes for XDock, the warehouse application depot teams use to scan and validate products, and for Reprise, which handles returned products.',
+      'Working on Dispatch, the delivery application drivers use to select their delivery stops, follow their route, and complete drop-offs.',
       'Working closely with engineering, product, and design teams, contributing through code reviews, performance optimization, and reusable component architecture.',
     ],
     technologies: ['React', 'React Query', 'Vite', 'TypeScript', 'Tailwind CSS', 'REST APIs', 'CI/CD (Azure)'],
   },
   {
-    company: 'Agenz', role: 'Sr Software Developer', period: 'Nov 2022 — Jul 2026', location: 'Casablanca (Remote)',
+    company: 'Agenz', role: 'Senior Software Developer', period: 'Nov 2022 — Jul 2026', location: 'Casablanca (Remote)',
     description: 'Agenz is Morocco’s leading proptech platform, digitizing the real estate market through its marketplace and AI-driven solutions.',
     achievements: [],
     groups: [
@@ -137,7 +137,7 @@ export const EXPERIENCES: ExperienceItem[] = [
       ] },
       { title: 'Backend & team', items: [
         'Developed a Node.js endpoint with Puppeteer to automate official property documents and contact reports, used daily by agents and staff across the company.',
-        'Implemented small backend features in NestJS alongside the PDF service, and used Socket.IO for real-time messaging in the communication hub.',
+        'Implemented backend features in NestJS alongside the PDF service, and used Socket.IO for real-time messaging in the communication hub.',
         'Worked in a 10-person tech team in an Agile/Scrum setup, reviewing code for 3 developers and helping keep conventions consistent across the codebase.',
       ] },
     ],
@@ -173,7 +173,7 @@ export const SKILLS = [
   { label: 'Beyond the browser', items: ['Node.js', 'NestJS', 'Puppeteer', 'Sanity CMS', 'Vite', 'Jest', 'SEO'] },
 ];
 export const EDUCATION = [
-  { title: 'Professional License · Web & Mobile Software Engineering', school: 'National School of Applied Sciences, Khouribga', period: '2024–2025' },
+  { title: 'Professional Bachelor’s Degree · Web & Mobile Software Engineering', school: 'National School of Applied Sciences, Khouribga', period: '2024–2025' },
   { title: 'Computer Software Engineering', school: '1337 · 42 Network, Khouribga', period: '2019–2025' },
   { title: 'DTS · IT Development', school: 'Specialized Institute of Management and Computer Science, Marrakech', period: '2017–2019' },
 ];
